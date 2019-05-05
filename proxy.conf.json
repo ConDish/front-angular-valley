@@ -1,0 +1,7 @@
+{
+    "/api/*" : {
+        "target" : "https://desolate-bastion-30255.herokuapp.com",
+        "secure" : false,
+        "pathRewrite" : {"^/api" : ""}
+    }
+}
