@@ -9,7 +9,7 @@ import { Patient } from './Patient';
 })
 export class PatientComponent implements OnInit {
 
-  constructor(private patientService: PatientService) {
+  constructor(public patientService: PatientService) {
 
 
   }
@@ -27,6 +27,7 @@ export class PatientComponent implements OnInit {
     this.patientService.deletePatient(patient.id).subscribe(response => {
 
       this.patientService.refreshList();
+      this.patientService.flagButton = true;
       
     });
    
