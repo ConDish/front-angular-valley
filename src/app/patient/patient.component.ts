@@ -9,26 +9,24 @@ import { Patient } from './Patient';
 })
 export class PatientComponent implements OnInit {
 
-  // Variables
-  patients: Patient[];
-
   constructor(private patientService: PatientService) {
 
-    this.patientService.getPatients().subscribe(response => {
-      this.patients = response;
-    });
 
   }
 
   ngOnInit() {
+    this.patientService.refreshList();
+    this.patientService.getCities();
+    this.patientService.getDoctors();
+    
   }
 
   deletePatient(patient: Patient) {
 
 
     this.patientService.deletePatient(patient.id).subscribe(response => {
-       
 
+      this.patientService.refreshList();
       
     });
    
